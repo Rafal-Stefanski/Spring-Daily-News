@@ -1,6 +1,7 @@
 ### Spring Daily News
 - using: http client, MySQL, JDBC
 
+##### address endpoint: http://localhost:8080/news
 ***
 ### Tydzień 7
 #### Zadanie 2 ( :newspaper: :smile: )
