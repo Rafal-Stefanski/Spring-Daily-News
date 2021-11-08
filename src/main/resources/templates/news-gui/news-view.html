@@ -9,12 +9,10 @@
 </head>
 <body>
     <h1 style="text-align: center; margin-top: 50px">Breaking News from Poland</h1>
-<!--    <h5 style="text-align: center">Mostly bad news ass usual.</h5>-->
     <br>
     <table class="table table-responsive" style="margin-left:auto; margin-right: auto; width: 75%; text-align: left">
     <tbody>
     <tr th:each="news: ${newsList}" style="vertical-align: middle">
-<!--        <td th:text="${news.getId()}"></td>-->
         <td>
             <img th:width="300px"  th:src="${news.getImgUrl()}" alt="Image not provided" src="">
             <p th:text="${news.getPublishedAt().substring(0,10)}"></p>
@@ -26,9 +24,6 @@
                 <button type="button" class="button">Edit</button>
             </a></p>
         </td>
-<!--        <td><img th:width="300px"  th:src="${news.getImgUrl()}" alt="avatar" src=""></td>-->
-
-
     </tr>
     </tbody>
     </table>

@@ -11,27 +11,6 @@
 <br>
 <table class="table" style="margin-left:auto; margin-right: auto; width: auto; text-align: left">
     <tbody>
-    <!--    <form th:action="@{/news/modify}" th:object="${news2Edit}" method="post">-->
-    <!--        <tr style="vertical-align: middle"><input type="hidden" th:field="*{id}"></tr>-->
-    <!--        <tr style="vertical-align: middle"><input type="text" th:field="*{publishedAt}"></tr>-->
-    <!--        <tr style="vertical-align: middle"><input type="text" th:field="*{imgUrl}"></tr>-->
-    <!--        <tr style="vertical-align: middle"><input type="text" th:field="*{title}"></tr>-->
-    <!--        <tr style="vertical-align: middle"><input type="text" th:field="*{description}"></tr>-->
-    <!--        <tr style="vertical-align: middle"><input type="submit" class="btn btn-outline-danger" value="Save"></tr>-->
-
-    <!--    </form>-->
-
-    <!--    <thead>-->
-    <!--    <tr>-->
-    <!--        <th scope="col">Date</th>-->
-    <!--        <th scope="col">Image url</th>-->
-    <!--        <th scope="col">Title</th>-->
-    <!--        <th scope="col">Description</th>-->
-    <!--        <th scope="col">&nbsp;</th>-->
-    <!--    </tr>-->
-    <!--    </thead>-->
-
-    <tbody>
     <form th:action="@{/news/modify}" th:object="${news2Edit}" method="post">
         <tr style="vertical-align: middle">
             <td><input type="hidden" th:field="*{id}"></td>
@@ -60,55 +39,7 @@
             </a></td>
         </tr>
     </form>
-
-
-    <!--    <tr th:each="news: ${news2Edit}" style="vertical-align: middle">-->
-    <!--        <td th:text="${news.getId()}"></td>-->
-    <!--        <td>-->
-    <!--            <img th:width="300px"  th:src="${news.getImgUrl()}" alt="Image not provided" src="">-->
-    <!--            <p th:text="${news.getPublishedAt().substring(0,10)}"></p>-->
-    <!--        </td>-->
-    <!--        <td>-->
-    <!--            <h4 th:text="${news.getTitle()}"></h4><br>-->
-    <!--            <p th:text="${news.getDescription()}"></p>-->
-    <!--            <p style="text-align: right"><a th:href="@{'news/edit/' + ${news.getId()}}">-->
-    <!--                <button type="button" class="button">Edit</button>-->
-    <!--            </a></p>-->
-    <!--        </td>-->
-    <!--&lt;!&ndash;        <td><img th:width="300px"  th:src="${news.getImgUrl()}" alt="avatar" src=""></td>&ndash;&gt;-->
-
-
-    <!--    </tr>-->
     </tbody>
 </table>
 </body>
 </html>
-
-<!--
-
-<table class="table table-striped" style="margin-left:auto; margin-right: auto; width: 75%; text-align: left">
-    <thead>
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">MARK</th>
-        <th scope="col">MODEL</th>
-        <th scope="col">YEAR</th>
-        <th scope="col">COLOUR</th>
-        <th scope="col">&nbsp;</th> // button
-</tr>
-</thead>
-<tbody>
-<tr style="vertical-align: middle">
-    <form th:action="@{/cars/modify}" th:object="${carToMod}" method="post">
-        <td><input type="hidden" th:field="*{id}"></td>
-        <td><input type="text" th:field="*{mark}"></td>
-        <td><input type="text" th:field="*{model}"></td>
-        <td><input type="text" th:field="*{productionYear}"></td>
-        <td><input type="text" th:field="*{color}"></td>
-        <td><input type="submit" class="btn btn-outline-danger" value="Save"></td>
-    </form>
-</tr>
-</tbody>
-</table>
-
--->
