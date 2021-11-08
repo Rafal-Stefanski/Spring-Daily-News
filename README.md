@@ -3,7 +3,7 @@
 
 ***
 ### Tydzień 7
-#### Zadanie 2 ( :news: :smile: )
+#### Zadanie 2 ( :newspaper: :smile: )
 - [X] Napisz aplikacje, która pobiera z wybranego API newsy, a następnie zapisuje je do bazy danych. Utwórz GUI, które umożliwia na przeglądanie newsów i ich edycje.
 ***
 
