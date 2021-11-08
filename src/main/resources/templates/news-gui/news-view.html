@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Daily News from Poland</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <h1 style="text-align: center; margin-top: 50px">Breaking News from Poland</h1>
+<!--    <h5 style="text-align: center">Mostly bad news ass usual.</h5>-->
+    <br>
+    <table class="table table-responsive" style="margin-left:auto; margin-right: auto; width: 75%; text-align: left">
+    <tbody>
+    <tr th:each="news: ${newsList}" style="vertical-align: middle">
+<!--        <td th:text="${news.getId()}"></td>-->
+        <td>
+            <img th:width="300px"  th:src="${news.getImgUrl()}" alt="Image not provided" src="">
+            <p th:text="${news.getPublishedAt().substring(0,10)}"></p>
+        </td>
+        <td>
+            <h4 th:text="${news.getTitle()}"></h4><br>
+            <p th:text="${news.getDescription()}"></p>
+            <p style="text-align: right"><a th:href="@{'news/edit/' + ${news.getId()}}">
+                <button type="button" class="button">Edit</button>
+            </a></p>
+        </td>
+<!--        <td><img th:width="300px"  th:src="${news.getImgUrl()}" alt="avatar" src=""></td>-->
+
+
+    </tr>
+    </tbody>
+    </table>
+    <p style="text-align: center;">
+        <a href="/news"><button type="button" class="btn btn-outline-dark">Refresh</button></a>&nbsp;
+        <a href="/"><button type="button" class="btn btn-outline-primary">Back to home page</button></a>
+    </p>
+</body>
+</html>

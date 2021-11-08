@@ -8,3 +8,5 @@
 ***
 
 ![screen shot](https://github.com/Rafal-Stefanski/Spring-DailyNews-App/blob/master/src/main/resources/static/screen_shot_01.png)
+
+![screen shot](https://github.com/Rafal-Stefanski/Spring-DailyNews-App/blob/master/src/main/resources/static/screen_shot_02.png)
