@@ -4,6 +4,7 @@ public class NewsDto {
 
     private long id;
     private String title;
+    private String url;
     private String imgUrl;
     private String description;
     private String publishedAt;
@@ -11,9 +12,10 @@ public class NewsDto {
     public NewsDto() {
     }
 
-    public NewsDto(long id, String title, String imgUrl, String description, String publishedAt) {
+    public NewsDto(long id, String title, String url, String imgUrl, String description, String publishedAt) {
         this.id = id;
         this.title = title;
+        this.url = url;
         this.imgUrl = imgUrl;
         this.description = description;
         this.publishedAt = publishedAt;
@@ -30,6 +32,14 @@ public class NewsDto {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public void setTitle(String title) {

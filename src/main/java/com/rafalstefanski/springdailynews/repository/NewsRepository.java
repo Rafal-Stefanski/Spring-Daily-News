@@ -13,13 +13,6 @@ public class NewsRepository {
     @Value("${news-repository.newsApiKey}")
     private String newsApiKey;
 
-    private News[] getNews() {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate
-                .getForObject("https://newsapi.org/v2/top-headlines?country=pl&apiKey=" + newsApiKey,
-                        News[].class);
-    }
-
     public Optional<News> getNewsFromApi() {
         RestTemplate restTemplate4News = new RestTemplate();
         return Optional.ofNullable(restTemplate4News.getForObject("https://newsapi.org/v2/top-headlines?country=pl&apiKey=" + newsApiKey,

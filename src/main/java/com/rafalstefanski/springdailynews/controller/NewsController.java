@@ -38,8 +38,8 @@ public class NewsController {
     }
 
     @PostMapping("/modify")
-    public String modifyNews(long id, String title, String imgUrl, String description, String publishedAt) {
-        if (newsDao.isNewsUpdated(id, title, imgUrl, description, publishedAt)) {
+    public String modifyNews(long id, String title, String url, String imgUrl, String description, String publishedAt) {
+        if (newsDao.isNewsUpdated(id, title, url, imgUrl, description, publishedAt)) {
             return "redirect:/news";
         }
         return "news-gui/news_404";

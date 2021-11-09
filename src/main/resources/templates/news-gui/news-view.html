@@ -20,9 +20,10 @@
         <td>
             <h4 th:text="${news.getTitle()}"></h4><br>
             <p th:text="${news.getDescription()}"></p>
-            <p style="text-align: right"><a th:href="@{'news/edit/' + ${news.getId()}}">
-                <button type="button" class="button">Edit</button>
-            </a></p>
+            <p style="text-align: right">
+                <a th:href="${news.getUrl()}"><button type="button" class="btn btn-outline-dark">Find out more</button></a>&nbsp;
+                <a th:href="@{'news/edit/' + ${news.getId()}}"><button type="button" class="btn btn-outline-dark">Edit</button></a>
+            </p>
         </td>
     </tr>
     </tbody>

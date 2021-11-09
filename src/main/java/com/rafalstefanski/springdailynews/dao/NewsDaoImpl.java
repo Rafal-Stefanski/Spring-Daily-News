@@ -25,11 +25,11 @@ public class NewsDaoImpl implements com.rafalstefanski.springdailynews.dao.NewsD
     }
 
     @Override
-    public boolean isNewsUpdated(long id, String title, String imgUrl, String description, String publishedAt) {
-        String sqlUpdate = "UPDATE news SET title = ?, img_url = ?, description = ?, published_at = ? WHERE id = ?";
+    public boolean isNewsUpdated(long id, String title, String url, String imgUrl, String description, String publishedAt) {
+        String sqlUpdate = "UPDATE news SET title = ?, url = ?, img_url = ?, description = ?, published_at = ? WHERE id = ?";
         NewsDto newsToChange = getNewsById(id);
         if (newsToChange != null) {
-            jdbcTemplate.update(sqlUpdate, title, imgUrl, description, publishedAt, id);
+            jdbcTemplate.update(sqlUpdate, title, url, imgUrl, description, publishedAt, id);
             return true;
         }
         return false;
@@ -43,6 +43,7 @@ public class NewsDaoImpl implements com.rafalstefanski.springdailynews.dao.NewsD
         maps.stream().forEach(element -> newsList.add(new NewsDto(
                 Long.parseLong(String.valueOf(element.get("id"))),
                 String.valueOf(element.get("title")),
+                String.valueOf(element.get("url")),
                 String.valueOf(element.get("img_url")),
                 String.valueOf(element.get("description")),
                 String.valueOf(element.get("published_at"))
@@ -59,6 +60,7 @@ public class NewsDaoImpl implements com.rafalstefanski.springdailynews.dao.NewsD
                 public NewsDto mapRow(ResultSet resultSet, int i) throws SQLException {
                     return new NewsDto(resultSet.getLong("id"),
                             resultSet.getString("title"),
+                            resultSet.getString("url"),
                             resultSet.getString("img_url"),
                             resultSet.getString("description"),
                             resultSet.getString("published_at"));

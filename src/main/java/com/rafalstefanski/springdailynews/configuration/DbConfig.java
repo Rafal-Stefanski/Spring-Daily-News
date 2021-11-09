@@ -34,14 +34,15 @@ public class DbConfig {
         String sqlDrop = "DROP TABLE IF EXISTS news";
         getJdbcTemplate().update(sqlDrop);
         String sqlCreate = "CREATE TABLE IF NOT EXISTS news (id INT PRIMARY KeY AUTO_INCREMENT, " +
-                "title VARCHAR (1000) NOT NULL, img_url VARCHAR (1000), description VARCHAR (10000), published_at VARCHAR (250))";
+                "title VARCHAR (1000) NOT NULL, url VARCHAR (1000), img_url VARCHAR (1000), description VARCHAR (10000), published_at VARCHAR (250))";
         getJdbcTemplate().update(sqlCreate);
 
-        String sqlInsert = "INSERT INTO news(title, img_url, description, published_at) VALUES (?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO news(title, url, img_url, description, published_at) VALUES (?, ?, ?, ?, ?)";
         Optional<News> newsOptional = newsRepository.getNewsFromApi();
         newsOptional.ifPresent(news -> news.getArticles()
                 .forEach(article -> getJdbcTemplate().update(sqlInsert,
                         article.getTitle(),
+                        article.getUrl(),
                         article.getUrlToImage(),
                         article.getDescription(),
                         article.getPublishedAt())));
