@@ -2,7 +2,6 @@ package com.rafalstefanski.springdailynews.dao;
 
 import com.rafalstefanski.springdailynews.dto.NewsDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -54,20 +53,16 @@ public class NewsDaoImpl implements com.rafalstefanski.springdailynews.dao.NewsD
     @Override
     public NewsDto getNewsById(long id) {
         String sqlGetOne = "SELECT * FROM news WHERE id = ?";
-        try {
-            return jdbcTemplate.queryForObject(sqlGetOne, new RowMapper<NewsDto>() {
-                @Override
-                public NewsDto mapRow(ResultSet resultSet, int i) throws SQLException {
-                    return new NewsDto(resultSet.getLong("id"),
-                            resultSet.getString("title"),
-                            resultSet.getString("url"),
-                            resultSet.getString("img_url"),
-                            resultSet.getString("description"),
-                            resultSet.getString("published_at"));
-                }
-            }, id);
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
+        return jdbcTemplate.queryForObject(sqlGetOne, new RowMapper<NewsDto>() {
+            @Override
+            public NewsDto mapRow(ResultSet resultSet, int i) throws SQLException {
+                return new NewsDto(resultSet.getLong("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("url"),
+                        resultSet.getString("img_url"),
+                        resultSet.getString("description"),
+                        resultSet.getString("published_at"));
+            }
+        }, id);
     }
 }
