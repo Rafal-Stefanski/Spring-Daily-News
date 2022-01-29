@@ -1,4 +1,4 @@
-package com.rafalstefanski.springdailynews.dao;
+package com.rafalstefanski.springdailynews.repository;
 
 import com.rafalstefanski.springdailynews.dto.NewsDto;
 

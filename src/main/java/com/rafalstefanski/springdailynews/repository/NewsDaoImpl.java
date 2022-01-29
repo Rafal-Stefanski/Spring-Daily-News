@@ -1,4 +1,4 @@
-package com.rafalstefanski.springdailynews.dao;
+package com.rafalstefanski.springdailynews.repository;
 
 import com.rafalstefanski.springdailynews.dto.NewsDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 
 @Repository
-public class NewsDaoImpl implements com.rafalstefanski.springdailynews.dao.NewsDao {
+public class NewsDaoImpl implements NewsDao {
 
     private final JdbcTemplate jdbcTemplate;
 

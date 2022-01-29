@@ -1,6 +1,6 @@
 package com.rafalstefanski.springdailynews.controller;
 
-import com.rafalstefanski.springdailynews.dao.NewsDao;
+import com.rafalstefanski.springdailynews.repository.NewsDao;
 import com.rafalstefanski.springdailynews.dto.NewsDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
