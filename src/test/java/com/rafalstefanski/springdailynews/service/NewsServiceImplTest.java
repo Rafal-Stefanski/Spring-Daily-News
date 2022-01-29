@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -21,8 +20,6 @@ class NewsServiceImplTest {
 
     @Mock
     private NewsDao newsDao;
-    @InjectMocks
-    NewsServiceImpl newsService = new NewsServiceImpl(newsDao);
 
     private List<NewsDto> newsDtoList() {
         return Arrays.asList(
@@ -52,17 +49,13 @@ class NewsServiceImplTest {
         // when
         when(newsDao.getNewsById(2)).thenReturn(testList.get(2));
         // then
-        NewsDto actual = newsDao.getNewsById(2L);
+        newsDao.getNewsById(2L);
         verify(newsDao, times(1)).getNewsById(2L);
     }
 
     @Test
     @DisplayName("Should update news.")
     void isNewsUpdated() {
-        // given
-//        NewsDto changedNews = new NewsDto(1L, "New title", "url 1", "imgUrl 1", "description 1", "publishedAt 1");
-
-//        List<NewsDto> testList = newsDtoList();
         // when
         when(newsDao.isNewsUpdated(1L, "New title", "url 1", "imgUrl 1", "description 1", "publishedAt 1")).thenReturn(true);
         // then
