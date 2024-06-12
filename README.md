@@ -16,3 +16,8 @@ Application downloads list of news with photos, titles, descriptions and source 
 ![screen shot](https://github.com/Rafal-Stefanski/Spring-Daily-News/blob/master/src/main/resources/static/screenshot_01.png)
 
 ![screen shot](https://github.com/Rafal-Stefanski/Spring-Daily-News/blob/master/src/main/resources/static/screenshot_02.png)
+
+2024-06-12 update
+App is now Dockerized and works fine.
+Set localhost:8080:8080 for Dockerfile in Bind ports section in run configuration.
+to start `docker-compose up` in terminal.
