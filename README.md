@@ -17,7 +17,8 @@ Application downloads list of news with photos, titles, descriptions and source 
 
 ![screen shot](https://github.com/Rafal-Stefanski/Spring-Daily-News/blob/master/src/main/resources/static/screenshot_02.png)
 
-2024-06-12 update
-App is now Dockerized and works fine.
-Set localhost:8080:8080 for Dockerfile in Bind ports section in run configuration.
-to start `docker-compose up` in terminal.
+#### 2024-06-12 update
+App is now Dockerized.
+1. Set localhost:8080:8080 for Dockerfile in Bind ports section in run configuration.
+2. remember about .mvn folder in project directory.
+3. to start `docker-compose up` in terminal or green arrow in docker-compose.yml gutter.
