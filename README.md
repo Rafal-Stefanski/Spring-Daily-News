@@ -19,5 +19,5 @@ Application downloads list of news with photos, titles, descriptions and source 
 
 #### 2024-06-12 update
 App is now Dockerized.
-1. in terminal `mvn wrapper:wrapper` or `./mvnw clean install (.mvn folder in project directory).
+1. in terminal `mvn wrapper:wrapper` to create .mvn folder in project directory.
 2. in terminal `docker-compose up` or green arrow in docker-compose.yml gutter.
