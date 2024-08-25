@@ -8,9 +8,9 @@
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-    <h1 style="text-align: center; margin-top: 50px">Breaking News from Poland</h1>
-    <br>
-    <table class="table table-responsive" style="margin-left:auto; margin-right: auto; width: 75%; text-align: left">
+<h1 style="text-align: center; margin-top: 50px">Breaking News from Poland</h1>
+<br>
+<table class="table table-responsive" style="margin-left:auto; margin-right: auto; width: 75%; text-align: left">
     <tbody>
     <tr th:each="news: ${newsList}" style="vertical-align: middle">
         <td>
@@ -22,15 +22,15 @@
             <p th:text="${news.getDescription()}"></p>
             <p style="text-align: right">
                 <a th:href="${news.getUrl()}"><button type="button" class="btn btn-outline-dark">Find out more</button></a>&nbsp;
-                <a th:href="@{'news/edit/' + ${news.getId()}}"><button type="button" class="btn btn-outline-dark">Edit</button></a>
+                <a th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" th:href="@{'news/edit/' + ${news.getId()}}"><button type="button" class="btn btn-outline-dark">Edit</button></a>
             </p>
         </td>
     </tr>
     </tbody>
-    </table>
-    <p style="text-align: center;">
-        <a href="/news"><button type="button" class="btn btn-outline-dark">Refresh</button></a>&nbsp;
-        <a href="/"><button type="button" class="btn btn-outline-primary">Back to home page</button></a>
-    </p>
+</table>
+<p style="text-align: center;">
+    <a href="/news"><button type="button" class="btn btn-outline-dark">Refresh</button></a>&nbsp;
+    <a href="/"><button type="button" class="btn btn-outline-primary">Back to home page</button></a>
+</p>
 </body>
 </html>

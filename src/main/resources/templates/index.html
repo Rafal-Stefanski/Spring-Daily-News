@@ -10,7 +10,12 @@
 <h2 style="text-align: center; margin-top: 20px">Check Today's News from Poland</h2><br>
 
 <p style="text-align: center"> &nbsp;
-    <a href="/news"><button type="button" class="btn btn-outline-info">Daily News from Poland GUI with SQL connection</button></a></p>
+    <a href="/news"><button type="button" class="btn btn-primary">Daily News from Poland GUI with SQL connection</button></a></p>
+<form style="text-align: center" th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" class="btn btn-outline-info"/>
+</form>
+<!--    add below text with login of logged user  -->
+<p style="text-align: center">Logged as: <b>[[${username}]]</b> with role: <b>[[${role}]]</b></p>
 
 
 </body>
