@@ -3,11 +3,8 @@ package com.rafalstefanski.springdailynews.repository;
 import com.rafalstefanski.springdailynews.dto.NewsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,30 +36,30 @@ public class NewsDaoImpl implements NewsDao {
         List<NewsDto> newsList = new ArrayList<>();
         String sqlSelectAll = "SELECT * FROM news";
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(sqlSelectAll);
-        maps.stream().forEach(element -> newsList.add(new NewsDto(
-                Long.parseLong(String.valueOf(element.get("id"))),
-                String.valueOf(element.get("title")),
-                String.valueOf(element.get("url")),
-                String.valueOf(element.get("img_url")),
-                String.valueOf(element.get("description")),
-                String.valueOf(element.get("published_at"))
-        )));
+        maps.forEach(element -> {
+            if (String.valueOf(element.get("description")).equals("null")) {
+                element.put("description", "No description");
+            }
+            newsList.add(new NewsDto(
+                    Long.parseLong(String.valueOf(element.get("id"))),
+                    String.valueOf(element.get("title")),
+                    String.valueOf(element.get("url")),
+                    String.valueOf(element.get("img_url")),
+                    String.valueOf(element.get("description")),
+                    String.valueOf(element.get("published_at"))
+            ));
+        });
         return newsList;
     }
 
     @Override
     public NewsDto getNewsById(long id) {
         String sqlGetOne = "SELECT * FROM news WHERE id = ?";
-        return jdbcTemplate.queryForObject(sqlGetOne, new RowMapper<NewsDto>() {
-            @Override
-            public NewsDto mapRow(ResultSet resultSet, int i) throws SQLException {
-                return new NewsDto(resultSet.getLong("id"),
-                        resultSet.getString("title"),
-                        resultSet.getString("url"),
-                        resultSet.getString("img_url"),
-                        resultSet.getString("description"),
-                        resultSet.getString("published_at"));
-            }
-        }, id);
+        return jdbcTemplate.queryForObject(sqlGetOne, (resultSet, i) -> new NewsDto(resultSet.getLong("id"),
+                resultSet.getString("title"),
+                resultSet.getString("url"),
+                resultSet.getString("img_url"),
+                resultSet.getString("description"),
+                resultSet.getString("published_at")), id);
     }
 }

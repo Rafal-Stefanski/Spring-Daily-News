@@ -3,7 +3,7 @@ package com.rafalstefanski.springdailynews.model;
 
 import com.fasterxml.jackson.annotation.*;
 
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import java.util.HashMap;
 import java.util.Map;
 
