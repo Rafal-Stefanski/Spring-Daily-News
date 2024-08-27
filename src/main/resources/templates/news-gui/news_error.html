@@ -7,8 +7,9 @@
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-<h4 style="text-align: center; margin-top: 100px; margin-bottom: 20px">There was an unexpected error...<br> <b>404</b></h4>
-
+<h4 style="text-align: center; margin-top: 100px; margin-bottom: 20px">There was an unexpected error...</h4>
+<h4 style="text-align: center; margin-bottom: 20px"><b>Status Code: <span th:text="${statusCode}"></span></b></h4>
+<p style="text-align: center">Error Message: <span th:text="${errorMessage}"></span></p>
 <h5 style="text-align: center"><a href="/news">Back to News List</a></h5>
 <h5 style="text-align: center"><a href="/">Back to home page</a></h5>
 </body>

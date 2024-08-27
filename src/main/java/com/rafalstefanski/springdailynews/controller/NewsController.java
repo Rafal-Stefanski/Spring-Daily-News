@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/news")
 public class NewsController {
 
-    private NewsDao newsDao;
+    private final NewsDao newsDao;
 
     public NewsController(NewsDao newsDao) {
         this.newsDao = newsDao;
@@ -34,7 +34,7 @@ public class NewsController {
             model.addAttribute("news2Edit", newsById.get());
             return "news-gui/news-edit";
         }
-        return "redirect:/news-view";
+        return "redirect:news-gui/news-view";
     }
 
     @PostMapping("/modify")
@@ -42,7 +42,7 @@ public class NewsController {
         if (newsDao.isNewsUpdated(id, title, url, imgUrl, description, publishedAt)) {
             return "redirect:/news";
         }
-        return "news-gui/news_404";
+        return "redirect:/error";
     }
 
 }

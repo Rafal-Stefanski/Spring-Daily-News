@@ -15,8 +15,8 @@ import java.util.Optional;
 @Configuration
 public class DbConfig {
 
-    private DataSource dataSource;
-    private NewsRepository newsRepository;
+    private final DataSource dataSource;
+    private final NewsRepository newsRepository;
 
     @Autowired
     public DbConfig(DataSource dataSource, NewsRepository newsRepository) {
